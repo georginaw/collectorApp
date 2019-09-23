@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: collection
-# Generation Time: 2019-09-23 12:30:54 +0000
+# Generation Time: 2019-09-23 12:59:19 +0000
 # ************************************************************
 
 
@@ -25,10 +25,10 @@
 
 CREATE TABLE `films` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `release_year` year(4) DEFAULT NULL,
-  `my_review` tinyint(1) DEFAULT NULL,
-  `bechdel_status` char(4) DEFAULT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `release_year` year(4) NOT NULL,
+  `my_review` tinyint(1) NOT NULL,
+  `bechdel_status` enum('PASS','FAIL') DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
