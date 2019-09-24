@@ -8,16 +8,9 @@ $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_statu
 
 $films = $query->fetchAll();
 
-
-<<<<<<< HEAD
-
-foreach ($films as $film) {
-    foreach ($film as $key => $value) {
-        echo $key . $value . '<br>';
-    }
+foreach ($films as $listing) {
+    echo '<h3 style="margin-bottom: 5px">' . $listing['title'] . '</h3>';
+    echo '<p style="margin:0">' . 'Year released: ' . $listing['release_year'] . '</p>';
+    echo '<p style="margin:0">' . 'Star review: ' . $listing['my_review'] . '</p>';
+    echo '<p style="margin:0">' . 'Bechdel test: ' . $listing['bechdel_status'] . '</p>';
 }
-=======
-var_dump($films);
->>>>>>> story1_showCollection
-
-
