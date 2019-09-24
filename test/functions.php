@@ -6,15 +6,15 @@ require_once ('../functions.php');
 
 class FunctionsTest extends TestCase {
     public function testDisplayFilms() {
-        $arrayData = ['film1' => ['title' => 'A Few Good Men', 'release_year' => 1984, 'my_review' => 4, 'bechdel_status' => 'PASS']];
-        $expectedResult = '<h3>' . $arrayData['film1']['title'] . '</h3>' .
-            '<p>' . 'Year released: ' . $arrayData['film1']['release_year'] . '</p>' .
-            '<p>' . 'Star review: ' . $arrayData['film1']['my_review'] . '</p>' .
-            '<p>' . 'Bechdel test: ' . $arrayData['film1']['bechdel_status'] . '</p>';
+        $arrayData = ['film1' => ['title' => 'A Few Good Men', 'release_year' => 1992, 'my_review' => 4, 'bechdel_status' => 'FAIL'], 'film2' => ['title' => 'Stand By Me', 'release_year' => 1986, 'my_review' => 5, 'bechdel_status' => 'FAIL']];
+        $expectedResult = '<h3>A Few Good Men</h3><p>Year released: 1992</p><p>Star review: 4</p><p>Bechdel test: FAIL</p><h3>Stand By Me</h3><p>Year released: 1986</p><p>Star review: 5</p><p>Bechdel test: FAIL</p>';
         $result = displayFilms($arrayData);
         $this->assertEquals($expectedResult,$result);
     }
 }
+
+
+
 
 
 
