@@ -10,6 +10,7 @@ $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_statu
 
 $films = $query->fetchAll();
 
-displayFilms($films);
+echo displayFilms($films);
+
 
 

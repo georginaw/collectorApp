@@ -10,10 +10,12 @@ require_once ('index.php');
  * return string displaying films and film details
  */
 function displayFilms(array $array) : string {
+    $string = '';
     foreach ($array as $item) {
-        echo '<h3 style="margin-bottom: 5px">' . $item['title'] . '</h3>';
-        echo '<p style="margin:0">' . 'Year released: ' . $item['release_year'] . '</p>';
-        echo '<p style="margin:0">' . 'Star review: ' . $item['my_review'] . '</p>';
-        echo '<p style="margin:0">' . 'Bechdel test: ' . $item['bechdel_status'] . '</p>';
-    }
+        $string .=
+            '<h3 style="margin-bottom: 5px">' . $item['title'] . '</h3>' .
+            '<p style="margin:0">' . 'Year released: ' . $item['release_year'] . '</p>' .
+            '<p style="margin:0">' . 'Star review: ' . $item['my_review'] . '</p>' .
+            '<p style="margin:0">' . 'Bechdel test: ' . $item['bechdel_status'] . '</p>';
+    } return $string;
 }
