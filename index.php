@@ -8,5 +8,11 @@ $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_statu
 
 $films = $query->fetchAll();
 
-var_dump($films);
+
+
+foreach ($films as $film) {
+    foreach ($film as $key => $value) {
+        echo $key . $value . '<br>';
+    }
+}
 
