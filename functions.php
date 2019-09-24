@@ -2,7 +2,14 @@
 
 require_once ('index.php');
 
-function displayFilms(array $array) {
+/*
+ * displays each film and its attributes (from the database) in a human readable way
+ *
+ * @param array which is an array containing arrays for each film
+ *
+ * return string displaying films and film details
+ */
+function displayFilms(array $array) : string {
     foreach ($array as $item) {
         echo '<h3 style="margin-bottom: 5px">' . $item['title'] . '</h3>';
         echo '<p style="margin:0">' . 'Year released: ' . $item['release_year'] . '</p>';
