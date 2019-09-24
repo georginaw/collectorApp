@@ -9,10 +9,15 @@ $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_statu
 $films = $query->fetchAll();
 
 
+<<<<<<< HEAD
 
 foreach ($films as $film) {
     foreach ($film as $key => $value) {
         echo $key . $value . '<br>';
     }
 }
+=======
+var_dump($films);
+>>>>>>> story1_showCollection
+
 
