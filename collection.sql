@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: collection
-# Generation Time: 2019-09-23 12:59:19 +0000
+# Generation Time: 2019-09-24 11:57:39 +0000
 # ************************************************************
 
 
@@ -29,6 +29,32 @@ CREATE TABLE `films` (
   `release_year` year(4) NOT NULL,
   `my_review` tinyint(1) NOT NULL,
   `bechdel_status` enum('PASS','FAIL') DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `films` WRITE;
+/*!40000 ALTER TABLE `films` DISABLE KEYS */;
+
+INSERT INTO `films` (`id`, `title`, `release_year`, `my_review`, `bechdel_status`)
+VALUES
+	(1,'Mad Max: Fury Road','2015',5,'PASS'),
+	(2,'The Matrix','1999',5,'PASS'),
+	(3,'The Departed','2006',4,'FAIL'),
+	(4,'Inception','2010',3,'FAIL'),
+	(5,'The Lion King','1994',5,'FAIL');
+
+/*!40000 ALTER TABLE `films` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table House_Plants
+# ------------------------------------------------------------
+
+CREATE TABLE `House_Plants` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `latin_name` varchar(255) NOT NULL DEFAULT '',
+  `level_of_watering` varchar(5) NOT NULL DEFAULT '',
+  `level_of_sunlight` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
