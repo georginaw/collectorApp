@@ -1,6 +1,6 @@
 <?php
 
-require ('index.php');
+require_once ('index.php');
 
 foreach ($films as $listing) {
 echo '<h3 style="margin-bottom: 5px">' . $listing['title'] . '</h3>';
