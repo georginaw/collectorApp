@@ -8,5 +8,7 @@ $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_statu
 
 $films = $query->fetchAll();
 
+
 var_dump($films);
+
 
