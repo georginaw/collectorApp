@@ -11,7 +11,7 @@ require_once('./functions.php');
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="display.php">
         <label>Film Title:</label>
         <input type="text" name="title">
         <label>Year released:</label>
@@ -31,6 +31,8 @@ require_once('./functions.php');
     </form>
 
 <?php
+
+
 
 ?>
 </body>
