@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +14,13 @@
         <label>Film Title:</label>
         <input type="text" name="title">
         <label>Year released:</label>
-        <input type="number" max="2020" min="1900" name="release_year">
+        <select>
+            <?php
+             echo createYearDropdown()
+            ?>
+        </select>
         <label>Review /5:</label>
-        <input type="number" maxlength="1" minlength="1" max="5" min="0" name="my_review">
+        <input type="number" max="5" min="0" name="my_review">
         <a href="http://bechdeltest.com/search/"><label>Bechdel Test:</label></a>
         <select name="bechdel_status" value="Select:">
               <option value="PASS">Pass</option>

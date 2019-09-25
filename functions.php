@@ -16,3 +16,15 @@ function displayFilms(array $films) : string {
             '<h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p>';
     } return $string;
 }
+
+
+function createYearDropdown()
+{
+    $string = '';
+    $date = getdate();
+    $year = $date['year'];
+    while ($year > 1900) {
+        $string .= '<option value="' . $year . '">' . $year . '</option>';
+    }
+    return $string;
+}
