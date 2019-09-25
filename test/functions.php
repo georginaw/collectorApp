@@ -12,9 +12,3 @@ class FunctionsTest extends TestCase {
         $this->assertEquals($expectedResult,$result);
     }
 }
-
-
-
-
-
-

@@ -29,8 +29,3 @@ echo displayFilms($films);
 ?>
 </body>
 </html>
-
-
-
-
-
