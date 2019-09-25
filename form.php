@@ -11,9 +11,17 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<?php
+    <form method="post">
+        <input type="text" name="title">
+        <input type="number" maxlength="4" minlength="4" name="release_year">
+        <input type="number" maxlength="1" minlength="1" max="5" min="0" name="my_review">
+        <select name="bechdel_status" value="Select:">
+            <option value="PASS">Pass</option>
+            <option value="FAIL">Fail</option>
+        </select>
+    </form>
 
-echo displayFilms($films);
+<?php
 
 ?>
 </body>
