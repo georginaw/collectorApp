@@ -1,6 +1,6 @@
 <?php
 
-require_once ('index.php');
+require_once ('display.php');
 
 /*
  * displays each film and its attributes (from the database) in a human readable way
