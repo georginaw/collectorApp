@@ -22,20 +22,6 @@ function fetchFromDB() : array {
 }
 
 /*
- * used to retrieve data from form to prepare it to be security-checked and entered to the film database
- */
-function getFormData() {
-    $title = $_POST['title'];
-    $year = $_POST['year'];
-    $review = $_POST['my_review'];
-    $bechdel = $_POST['bechel_status'];
-    $filmArray = [$title, $year, $review, $bechdel];
-    return $filmArray;
-}
-
-
-
-/*
  * displays each film and its attributes (stored in the $films array, taken from the database) in a human readable way
  *
  * @param array which is an films array containing arrays for each film
