@@ -1,7 +1,5 @@
 <?php
 
-//require_once ('display.php');
-
 /*
  * displays each film and its attributes (from the database) in a human readable way
  *
@@ -17,7 +15,11 @@ function displayFilms(array $films) : string {
     } return $string;
 }
 
-
+/*
+ * creates a string of years from current date through to 1901 to force the input in the year section of the form to be in a 4 INT format
+ *
+ * return string displaying years in the dropdown selection box on the film input form
+ */
 function createYearDropdown() {
     $string = '';
     $date = getdate();
@@ -29,5 +31,5 @@ function createYearDropdown() {
     return $string;
 }
 
-//echo createYearDropdown();
+
 
