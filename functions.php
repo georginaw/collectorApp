@@ -25,7 +25,7 @@ function fetchFromDB() : array {
  * used to retrieve data from form to prepare it to be security-checked and entered to the film database
  */
 function getFormData() {
-    
+
 }
 
 
