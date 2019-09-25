@@ -32,11 +32,6 @@ require_once('functions.php');
         </select>
         <input type="submit" value="Add film to collection" name="submit-to-db">
     </form>
-<?php
-//call/add functions to check if data filled out correctly for each input
-//call/add function to input the data to the db
-
-?>
 </body>
 </html>
 

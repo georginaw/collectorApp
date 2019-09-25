@@ -52,8 +52,20 @@ function createYearDropdown() {
     return $string;
 }
 
-
-
+/*
+ * used to retrieve data from form to prepare it to be security-checked and entered to the film database
+ *
+ * returns array with key names matching the database table field names and the values from the user form input
+ */
+function getFormData() : array {
+    $filmArray = [
+        '`title`' => $_POST['title'],
+        '`release_year`' => $_POST['year'],
+        '`my_review`' => $_POST['my_review'],
+        '`bechdel_status`' => $_POST['bechdel_status']
+    ];
+    return $filmArray;
+}
 
 
 
