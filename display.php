@@ -1,10 +1,9 @@
 <?php
 require_once('functions.php');
 
-$newFilm = getFormData();
+$films = fetchFromDB();
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
