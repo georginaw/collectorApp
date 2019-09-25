@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: collection
-# Generation Time: 2019-09-24 11:57:39 +0000
+# Generation Time: 2019-09-25 08:55:21 +0000
 # ************************************************************
 
 
@@ -22,6 +22,8 @@
 
 # Dump of table films
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `films`;
 
 CREATE TABLE `films` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -45,19 +47,6 @@ VALUES
 
 /*!40000 ALTER TABLE `films` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table House_Plants
-# ------------------------------------------------------------
-
-CREATE TABLE `House_Plants` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `latin_name` varchar(255) NOT NULL DEFAULT '',
-  `level_of_watering` varchar(5) NOT NULL DEFAULT '',
-  `level_of_sunlight` varchar(8) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 
