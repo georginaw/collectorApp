@@ -11,11 +11,11 @@ require_once ('index.php');
  */
 function displayFilms(array $films) : string {
     $string = '';
-    foreach ($films as $item) {
+    foreach ($films as $film) {
         $string .=
-            '<h3>' . $item['title'] . '</h3>' .
-            '<p>' . 'Year released: ' . $item['release_year'] . '</p>' .
-            '<p>' . 'Star review: ' . $item['my_review'] . '</p>' .
-            '<p>' . 'Bechdel test: ' . $item['bechdel_status'] . '</p>';
+            '<h3>' . $film['title'] . '</h3>
+            <p>Year released: ' . $film['release_year'] . '</p>
+            <p>Star review: ' . $film['my_review'] . '</p>
+            <p>Bechdel test: ' . $film['bechdel_status'] . '</p>';
     } return $string;
 }
