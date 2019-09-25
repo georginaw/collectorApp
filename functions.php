@@ -1,6 +1,6 @@
 <?php
 
-require_once ('display.php');
+//require_once ('display.php');
 
 /*
  * displays each film and its attributes (from the database) in a human readable way
@@ -18,13 +18,16 @@ function displayFilms(array $films) : string {
 }
 
 
-function createYearDropdown()
-{
+function createYearDropdown() {
     $string = '';
     $date = getdate();
     $year = $date['year'];
     while ($year > 1900) {
         $string .= '<option value="' . $year . '">' . $year . '</option>';
+        $year--;
     }
     return $string;
 }
+
+//echo createYearDropdown();
+

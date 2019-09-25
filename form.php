@@ -1,4 +1,5 @@
 <?php
+require_once('./functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +15,9 @@
         <label>Film Title:</label>
         <input type="text" name="title">
         <label>Year released:</label>
-        <select>
+        <select value="Year">
             <?php
-             echo createYearDropdown()
+            echo createYearDropdown();
             ?>
         </select>
         <label>Review /5:</label>
