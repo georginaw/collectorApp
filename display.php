@@ -1,6 +1,15 @@
 <?php
-
+session_start();
 require_once('functions.php');
+
+if (!isset($_SESSION['formStatus'])) {
+    $_SESSION['formStatus'] = 'set';
+} elseif ($_SESSION['formStatus'] == 'formCheck') {
+    $newFilm = getFormData();
+    foreach ($newFilm as $key => $info) {
+        echo $key . $info;
+    }
+}
 
 $films = fetchFromDB();
 

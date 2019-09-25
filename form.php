@@ -1,6 +1,6 @@
 <?php
 require_once('functions.php');
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ require_once('functions.php');
         <label>Film Title:</label>
         <input type="text" name="title">
         <label>Year released:</label>
-        <select value="Year">
+        <select value="year" name="year">
             <?php
             echo createYearDropdown();
             ?>
@@ -30,11 +30,15 @@ require_once('functions.php');
         </select>
         <input type="submit" value="Add film to collection" name="submit-to-db">
     </form>
-
 <?php
 
-
-
+if (!isset('submit-to-db')) {
+    $_SESSION['formStatus'] = 'formEmpty';
+} else if (isset('submit-to-db')) {
+    $_SESSION['formStatus'] = 'formCheck';
+    header('Location: display.php');
+}
 ?>
 </body>
 </html>
+
