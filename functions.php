@@ -1,19 +1,33 @@
 <?php
 
+/*
+ * prepare data from form to go into the database
+ */
+function linkToFilmDB() {
+    $db = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $db;
+}
 
-/* used to retrieve data from the film database
- *
- *
+/*
+ * used to retrieve data from the film database
  *
  * return array of films with attributes from database
  */
 function fetchFromDB() : array {
-    $db = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db = linkToFilmDB();
     $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
     $films = $query->fetchAll();
     return $films;
 }
+
+/*
+ * used to retrieve data from form to prepare it to be security-checked and entered to the film database
+ */
+function getFormData() {
+    
+}
+
 
 
 /*
@@ -46,6 +60,10 @@ function createYearDropdown() {
     }
     return $string;
 }
+
+
+
+
 
 
 
