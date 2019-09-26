@@ -10,4 +10,4 @@ $filmDB = linkToFilmDB();
 
 addToDB($filmDB, $title, $year, $review, $bechdel);
 
-header ('Location: display.php');
+header ('Location: index.php');
