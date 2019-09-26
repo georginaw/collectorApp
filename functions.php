@@ -41,7 +41,18 @@ function displayFilms(array $films): string {
     $string = '';
     foreach ($films as $film) {
         $string .=
-            '<div class="film-card"><div class="film-detail-box"><h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p></div><form method="post" action="delete-from-database.php"><input type="submit" value="Delete" name="' . $film['id'] . '"></form></div>';
+            '<div class="film-card">' .
+                '<div class="film-detail-box">' .
+                    '<h3>' . $film['title'] . '</h3>' .
+                    '<p>Year released: ' . $film['release_year'] . '</p>' .
+                    '<p>Star review: ' . $film['my_review'] . '</p>' .
+                    '<p>Bechdel test: ' . $film['bechdel_status'] . '</p>' .
+                '</div>' .
+                '<form method="post" action="delete-from-database.php">' .
+                    '<input hidden type="number" name="' . $film['id'] . '">' .
+                    '<input type="submit" value="Delete">' .
+                '</form>' .
+            '</div>';
     } return $string;
 }
 
