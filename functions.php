@@ -20,13 +20,13 @@ function linkToFilmDB() {
  * return array $films of films with their attributes
  */
 function fetchFromDB($filmDBLink): array {
-    $query = $filmDBLink->query('SELECT `id`, `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
+    $query = $filmDBLink->query('SELECT `id`, `title`, `release_year`, `my_review`, `bechdel_status` FROM `films` WHERE `deleted` = 0');
     $films = $query->fetchAll();
     return $films;
 }
 
-function deleteFromDB($filmDBLink, $id){
-    $filmDBLink->query('UPDATE `films` SET `deleted` = 1 WHERE `id` = ' . $id . ';');
+function deleteFromDB($filmDBLink, array $films){
+    $filmDBLink->query('UPDATE `films` SET `deleted` = 1 WHERE `id` = ' . $films['id'] . ';');
 }
 
 
@@ -41,7 +41,7 @@ function displayFilms(array $films): string {
     $string = '';
     foreach ($films as $film) {
         $string .=
-            '<div class="film-card"><div class="film-detail-box"><h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p></div><form method="post" action="delete-from-database.php"><input type="submit" value="Delete"></form></div>';
+            '<div class="film-card"><div class="film-detail-box"><h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p></div><form method="post" action="delete-from-database.php"><input type="submit" value="Delete" name="' . $film['id'] . '"></form></div>';
     } return $string;
 }
 
