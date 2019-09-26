@@ -1,38 +1,35 @@
 <?php
 
 /*
- * prepare data from form to go into the database
+ * used to set up link to the film database using PDO library and sets up the returned array to be associative
+ *
+ * returns variable with link to the film database
  */
 function linkToFilmDB() {
-    $db = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    return $db;
+    $filmDBLink = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
+    $filmDBLink->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $filmDBLink;
 }
 
+
 /*
- * used to retrieve data from the film database
+ * used to retrieve all films from the film database, including their attributes
  *
- * return array of films with attributes from database
+ * @param $filmDBLink which is the link to the film database
+ *
+ * return array $films of films with their attributes
  */
-function fetchFromDB($db) : array {
-    $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
+function fetchFromDB($filmDBLink) : array {
+    $query = $filmDBLink->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
     $films = $query->fetchAll();
     return $films;
 }
 
-/*
- *
- */
-function addToDB($db, $title, $year, $review, $bechdel) {
-    $query = $db->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
-    $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
-}
-
 
 /*
- * displays each film and its attributes (stored in the $films array, taken from the database) in a human readable way
+ * displays each film and its attributes (stored in the $films array, taken from the database) in a more readable way
  *
- * @param array which is an films array containing arrays for each film
+ * @param array $films which contains films and their attributes stored in the film database
  *
  * return string displaying films and film details
  */
@@ -44,12 +41,29 @@ function displayFilms(array $films) : string {
     } return $string;
 }
 
+
 /*
- * creates a string of years from current date through to 1901 to force the input in the year section of the form to be in a 4 INT format
+ * adds the inputs from the 'new film' html form to the database after checking user inputs are secure
+ *
+ * @param $filmDBLink variable which contains a link to the film database
+ * @param string $title title field data from the user form
+ * @param int $year release_year field data from user form (1901 up to current year)
+ * @param int $review my_review field data from user form (out of 5)
+ * @param string $bechdel bechdel status field data from user form (pass/fail)
+ *
+ */
+function addToDB($filmDBLink, string $title, int $year, int $review, string $bechdel) {
+    $query = $filmDB->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
+    $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
+}
+
+
+/*
+ * creates a string of years from current date back through to 1901 to force the input in the year section of the form to be in a 4 INT format
  *
  * return string displaying years in the dropdown selection box on the film input form
  */
-function createYearDropdown() {
+function createYearDropdown() : string {
     $string = '';
     $date = getdate();
     $year = $date['year'];
