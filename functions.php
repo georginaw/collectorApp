@@ -23,11 +23,10 @@ function fetchFromDB($db) : array {
 /*
  *
  */
-function addToDB($db) {
+function addToDB($db, $title, $year, $review, $bechdel) {
     $query = $db->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
-    $query->execute([':title' => $_POST['title'], ':release_year' => $_POST['year'], ':my_review' => $_POST['my_review'], ':bechdel_status' => $_POST['bechdel_status']]);
+    $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
 }
-
 
 
 /*
