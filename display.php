@@ -1,17 +1,6 @@
 <?php
-
 require_once('functions.php');
-
-$db = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
-
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-$query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
-
-$films = $query->fetchAll();
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +12,12 @@ $films = $query->fetchAll();
 </head>
 <body>
 <?php
-
+$filmDB = linkToFilmDB();
+$films = fetchFromDB($filmDB);
 echo displayFilms($films);
-
 ?>
+<div class="button">
+    <a href="form.php">Add Film to Collection</a>
+</div>
 </body>
 </html>
