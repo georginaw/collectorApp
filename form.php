@@ -1,5 +1,9 @@
 <?php
 require_once('functions.php');
+$date = getdate();
+$thisYear = $date['year'];
+$firstYear = 1894;
+$yearArray = createYearDropdownArray($thisYear, $firstYear);
 
 ?>
 
@@ -19,7 +23,7 @@ require_once('functions.php');
         <select type="number" value="year" name="year" required>
             <option></option>
             <?php
-            echo createYearDropdown();
+            echo populateYearDropdown($yearArray);
             ?>
         </select>
         <label>Review /5:</label>
@@ -34,4 +38,3 @@ require_once('functions.php');
     </form>
 </body>
 </html>
-

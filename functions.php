@@ -59,23 +59,35 @@ function addToDB($filmDBLink, string $title, int $year, int $review, string $bec
 
 
 /*
- * creates a string of years from current date back through to 1901 to force the input in the year section of the form to be in a 4 INT format
+ * creates an array of years from current date back through to the $firstYear year value to force the input in the year section of the form to be in a 4 INT format and within a limited time period
+ *
+ * @param int $firstYear should be the oldest year that users can select as a year of release for a film they enter on the form
+ * @param int $thisYear variable containing current year value
  *
  * return string displaying years in the dropdown selection box on the film input form
  */
-function createYearDropdown(): string {
-    $string = '';
-    $date = getdate();
-    $year = $date['year'];
-    while ($year > 1900) {
-        $string .= '<option value="' . $year . '">' . $year . '</option>';
-        $year--;
+function createYearDropdownArray(int $thisYear, int $firstYear): array {
+    $yearArray = [];
+    while ($thisYear > $firstYear) {
+        array_push($yearArray, $thisYear);
+        $thisYear--;
     }
-    return $string;
+    return $yearArray;
 }
 
 
-
-
-
-
+/*
+ * populates the year released dropdown selection on the user input form
+ *
+ * @param array $yearArray of year values
+ *
+ * return string displaying years in the dropdown selection box on the film input form
+ */
+function populateYearDropdown($yearArray): string {
+    $string = '';
+    $yearArrayLength = count($yearArray);
+    for ($i = 0; $i < $yearArrayLength; $i++) {
+        $string .= '<option value="' . $yearArray[$i] . '">' . $yearArray[$i] . '</option>';
+    }
+    return $string;
+}
