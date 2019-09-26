@@ -22,6 +22,16 @@ function fetchFromDB() : array {
 }
 
 /*
+ *
+ */
+function addToDB($db) {
+    $query = $db->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
+    $query->execute([':title' => $_POST['title'], ':release_year' => $_POST['year'], ':my_review' => $_POST['my_review'], ':bechdel_status' => $_POST['bechdel_status']]);
+}
+
+
+
+/*
  * displays each film and its attributes (stored in the $films array, taken from the database) in a human readable way
  *
  * @param array which is an films array containing arrays for each film
@@ -52,20 +62,7 @@ function createYearDropdown() {
     return $string;
 }
 
-/*
- * used to retrieve data from form to prepare it to be security-checked and entered to the film database
- *
- * returns array with key names matching the database table field names and the values from the user form input
- */
-function getFormData() : array {
-    $filmArray = [
-        '`title`' => $_POST['title'],
-        '`release_year`' => $_POST['year'],
-        '`my_review`' => $_POST['my_review'],
-        '`bechdel_status`' => $_POST['bechdel_status']
-    ];
-    return $filmArray;
-}
+
 
 
 

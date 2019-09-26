@@ -16,7 +16,7 @@ require_once('functions.php');
         <label>Film Title:</label>
         <input type="text" name="title" required>
         <label>Year released:</label>
-        <select value="year" name="year" required>
+        <select type="number" value="year" name="year" required>
             <option></option>
             <?php
             echo createYearDropdown();
