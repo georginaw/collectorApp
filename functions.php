@@ -19,7 +19,7 @@ function linkToFilmDB() {
  *
  * return array $films of films with their attributes
  */
-function fetchFromDB($filmDBLink) : array {
+function fetchFromDB($filmDBLink): array {
     $query = $filmDBLink->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
     $films = $query->fetchAll();
     return $films;
@@ -33,7 +33,7 @@ function fetchFromDB($filmDBLink) : array {
  *
  * return string displaying films and film details
  */
-function displayFilms(array $films) : string {
+function displayFilms(array $films): string {
     $string = '';
     foreach ($films as $film) {
         $string .=
