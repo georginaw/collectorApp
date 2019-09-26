@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: collection
-# Generation Time: 2019-09-23 12:59:19 +0000
+# Generation Time: 2019-09-25 08:55:21 +0000
 # ************************************************************
 
 
@@ -23,6 +23,8 @@
 # Dump of table films
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `films`;
+
 CREATE TABLE `films` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
@@ -32,6 +34,19 @@ CREATE TABLE `films` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `films` WRITE;
+/*!40000 ALTER TABLE `films` DISABLE KEYS */;
+
+INSERT INTO `films` (`id`, `title`, `release_year`, `my_review`, `bechdel_status`)
+VALUES
+	(1,'Mad Max: Fury Road','2015',5,'PASS'),
+	(2,'The Matrix','1999',5,'PASS'),
+	(3,'The Departed','2006',4,'FAIL'),
+	(4,'Inception','2010',3,'FAIL'),
+	(5,'The Lion King','1994',5,'FAIL');
+
+/*!40000 ALTER TABLE `films` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
