@@ -1,29 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
 body {
     padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h3 {
+    font-size: 2rem;
     margin-bottom: 5px;
 }
 
+
 p {
     margin: 0;
+    font-size: 1.5rem;
 }
 
-a {
-    text-decoration: none;
+label {
+    font-size: 1.5rem;
 }
 
 .button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #a9a9a9;
-    width: 225px;
-    align-content: center;
+    text-align: center;
+    background-color: rgba(200, 200, 200, 0.8);
     border-radius: 5px;
+    width: max-content;
 }
 
 .button a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #000000;
+    text-decoration: none;
+}
+
+.form-input {
+    margin: 10px;
 }

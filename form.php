@@ -17,8 +17,11 @@ $yearArray = createYearDropdownArray($thisYear, $firstYear);
 </head>
 <body>
     <form method="post" action="add-to-database.php">
-        <label>Film Title:</label>
-        <input type="text" name="title" required>
+        <div class="form-input">
+            <label>Film Title:</label>
+            <input type="text" name="title" required>
+        </div>
+        <div class="form-input">
         <label>Year released:</label>
         <select type="number" value="year" name="year" required>
             <option></option>
@@ -26,18 +29,25 @@ $yearArray = createYearDropdownArray($thisYear, $firstYear);
             echo populateYearDropdown($yearArray);
             ?>
         </select>
-        <label>Review /5:</label>
-        <input type="number" max="5" min="1" name="my_review" required>
-        <a href="http://bechdeltest.com/search/" target="_blank"><label>Bechdel Test:</label></a>
-        <select value="Select:" name="bechdel_status" required>
-            <option></option>
-            <option value="PASS">Pass</option>
-            <option value="FAIL">Fail</option>
-        </select>
-        <input type="submit" value="Add film to collection" name="submit-to-db">
+        </div>
+        <div class="form-input">
+            <label>Review /5:</label>
+            <input type="number" max="5" min="1" name="my_review" required>
+        </div>
+        <div class="form-input">
+            <a href="http://bechdeltest.com/search/" target="_blank"><label>Bechdel Test:</label></a>
+            <select value="Select:" name="bechdel_status" required>
+                <option></option>
+                <option value="PASS">Pass</option>
+                <option value="FAIL">Fail</option>
+            </select>
+        </div>
+        <div class="form-input">
+            <input type="submit" value="Add film to collection" name="submit-to-db">
+        </div>
     </form>
     <div class="button">
-        <a href="index.php">Return to Collection</a>
+        <a href="index.php">Back</a>
     </div>
 </body>
 </html>
