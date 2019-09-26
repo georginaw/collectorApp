@@ -27,7 +27,7 @@ $yearArray = createYearDropdownArray($thisYear, $firstYear);
             ?>
         </select>
         <label>Review /5:</label>
-        <input type="number" max="5" min="0" name="my_review" required>
+        <input type="number" max="5" min="1" name="my_review" required>
         <a href="http://bechdeltest.com/search/"><label>Bechdel Test:</label></a>
         <select value="Select:" name="bechdel_status" required>
             <option></option>
