@@ -53,7 +53,7 @@ function displayFilms(array $films) : string {
  *
  */
 function addToDB($filmDBLink, string $title, int $year, int $review, string $bechdel) {
-    $query = $filmDB->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
+    $query = $filmDBLink->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
     $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
 }
 
@@ -73,9 +73,3 @@ function createYearDropdown() : string {
     }
     return $string;
 }
-
-
-
-
-
-
