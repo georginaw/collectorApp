@@ -11,12 +11,13 @@ require_once('functions.php');
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="container">
 <?php
 $filmDB = linkToFilmDB();
 $films = fetchFromDB($filmDB);
 echo displayFilms($films);
 ?>
-
+</div>
 <div class="button">
     <a href="form.php">Add Film to Collection</a>
 </div>
