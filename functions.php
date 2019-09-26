@@ -25,6 +25,10 @@ function fetchFromDB($filmDBLink): array {
     return $films;
 }
 
+function deleteFromDB($filmDBLink, $id){
+    $filmDBLink->query('UPDATE `films` SET `deleted` = 1 WHERE `id` = ' . $id . ';');
+}
+
 
 /*
  * displays each film and its attributes (stored in the $films array, taken from the database) in a more readable way
@@ -37,7 +41,7 @@ function displayFilms(array $films): string {
     $string = '';
     foreach ($films as $film) {
         $string .=
-            '<div class="film-card id-' . $film['id'] . '"><h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p></div>';
+            '<div class="film-card"><div class="film-detail-box"><h3>' . $film['title'] . '</h3><p>Year released: ' . $film['release_year'] . '</p><p>Star review: ' . $film['my_review'] . '</p><p>Bechdel test: ' . $film['bechdel_status'] . '</p></div><form method="post" action="delete-from-database.php"><input type="submit" value="Delete"></form></div>';
     } return $string;
 }
 
