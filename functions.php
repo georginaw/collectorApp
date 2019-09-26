@@ -19,7 +19,7 @@ function linkToFilmDB() {
  *
  * return array $films of films with their attributes
  */
-function fetchFromDB($filmDBLink) : array {
+function fetchFromDB($filmDBLink): array {
     $query = $filmDBLink->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
     $films = $query->fetchAll();
     return $films;
@@ -33,7 +33,7 @@ function fetchFromDB($filmDBLink) : array {
  *
  * return string displaying films and film details
  */
-function displayFilms(array $films) : string {
+function displayFilms(array $films): string {
     $string = '';
     foreach ($films as $film) {
         $string .=
@@ -53,7 +53,7 @@ function displayFilms(array $films) : string {
  *
  */
 function addToDB($filmDBLink, string $title, int $year, int $review, string $bechdel) {
-    $query = $filmDB->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
+    $query = $filmDBLink->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
     $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
 }
 
@@ -63,7 +63,7 @@ function addToDB($filmDBLink, string $title, int $year, int $review, string $bec
  *
  * return string displaying years in the dropdown selection box on the film input form
  */
-function createYearDropdown() : string {
+function createYearDropdown(): string {
     $string = '';
     $date = getdate();
     $year = $date['year'];
