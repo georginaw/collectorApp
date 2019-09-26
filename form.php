@@ -2,7 +2,7 @@
 require_once('functions.php');
 $date = getdate();
 $thisYear = $date['year'];
-$firstYear = 1920;
+$firstYear = 1894;
 $yearArray = createYearDropdownArray($thisYear, $firstYear);
 
 ?>
@@ -38,4 +38,3 @@ $yearArray = createYearDropdownArray($thisYear, $firstYear);
     </form>
 </body>
 </html>
-
