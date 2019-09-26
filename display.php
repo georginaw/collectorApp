@@ -1,7 +1,8 @@
 <?php
 require_once('functions.php');
 
-$films = fetchFromDB();
+$filmDB = linkToFilmDB();
+$films = fetchFromDB($filmDB);
 
 ?>
 

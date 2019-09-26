@@ -14,8 +14,7 @@ function linkToFilmDB() {
  *
  * return array of films with attributes from database
  */
-function fetchFromDB() : array {
-    $db = linkToFilmDB();
+function fetchFromDB($db) : array {
     $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
     $films = $query->fetchAll();
     return $films;
