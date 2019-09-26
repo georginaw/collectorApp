@@ -25,8 +25,9 @@ function fetchFromDB($filmDBLink): array {
     return $films;
 }
 
-function deleteFromDB($filmDBLink, array $films){
-    $filmDBLink->query('UPDATE `films` SET `deleted` = 1 WHERE `id` = ' . $films['id'] . ';');
+function deleteFromDB($filmDBLink, $id){
+    $query = $filmDBLink->prepare('UPDATE `films` SET `deleted` = 1 WHERE `id` = ?');
+    $query->execute([$id]);
 }
 
 
@@ -49,7 +50,7 @@ function displayFilms(array $films): string {
                     '<p>Bechdel test: ' . $film['bechdel_status'] . '</p>' .
                 '</div>' .
                 '<form method="post" action="delete-from-database.php">' .
-                    '<input hidden type="number" name="' . $film['id'] . '">' .
+                    '<input type="hidden" name="filmId" value="' . $film['id'] . '">' .
                     '<input type="submit" value="Delete">' .
                 '</form>' .
             '</div>';
