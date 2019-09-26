@@ -57,6 +57,7 @@ function addToDB($filmDBLink, string $title, int $year, int $review, string $bec
     $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
 }
 
+
 /*
  * creates an array of years from current date back through to the $firstYear year value to force the input in the year section of the form to be in a 4 INT format and within a limited time period
  *
