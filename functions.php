@@ -85,8 +85,9 @@ function createYearDropdownArray(int $thisYear, int $firstYear): array {
  */
 function populateYearDropdown($yearArray): string {
     $string = '';
-    for ($arrIndex = 0; $arrIndex < count($yearArray); $arrIndex++) {
-        $string .= '<option value="' . $yearArray[$arrIndex] . '">' . $yearArray[$arrIndex] . '</option>';
+    $yearArrayLength = count($yearArray);
+    for ($i = 0; $i < $yearArrayLength; $i++) {
+        $string .= '<option value="' . $yearArray[$i] . '">' . $yearArray[$i] . '</option>';
     }
     return $string;
 }
