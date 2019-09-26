@@ -1,5 +1,6 @@
 <?php
-require_once('./functions.php');
+require_once('functions.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -11,27 +12,26 @@ require_once('./functions.php');
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="database.php">
         <label>Film Title:</label>
-        <input type="text" name="title">
+        <input type="text" name="title" required>
         <label>Year released:</label>
-        <select value="Year">
+        <select type="number" value="year" name="year" required>
+            <option></option>
             <?php
             echo createYearDropdown();
             ?>
         </select>
         <label>Review /5:</label>
-        <input type="number" max="5" min="0" name="my_review">
+        <input type="number" max="5" min="0" name="my_review" required>
         <a href="http://bechdeltest.com/search/"><label>Bechdel Test:</label></a>
-        <select name="bechdel_status" value="Select:">
-              <option value="PASS">Pass</option>
-              <option value="FAIL">Fail</option>
+        <select value="Select:" name="bechdel_status" required>
+            <option></option>
+            <option value="PASS">Pass</option>
+            <option value="FAIL">Fail</option>
         </select>
         <input type="submit" value="Add film to collection" name="submit-to-db">
     </form>
-
-<?php
-
-?>
 </body>
 </html>
+

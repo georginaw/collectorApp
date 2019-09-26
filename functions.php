@@ -1,7 +1,36 @@
 <?php
 
 /*
- * displays each film and its attributes (from the database) in a human readable way
+ * prepare data from form to go into the database
+ */
+function linkToFilmDB() {
+    $db = new PDO('mysql:host=db;dbname=collection', 'root', 'password');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $db;
+}
+
+/*
+ * used to retrieve data from the film database
+ *
+ * return array of films with attributes from database
+ */
+function fetchFromDB($db) : array {
+    $query = $db->query('SELECT `title`, `release_year`, `my_review`, `bechdel_status` FROM `films`');
+    $films = $query->fetchAll();
+    return $films;
+}
+
+/*
+ *
+ */
+function addToDB($db, $title, $year, $review, $bechdel) {
+    $query = $db->prepare('INSERT INTO `films` (`title`, `release_year`, `my_review`, `bechdel_status`) VALUES (:title, :release_year, :my_review, :bechdel_status)');
+    $query->execute([':title' => $title, ':release_year' => $year, ':my_review' => $review, ':bechdel_status' => $bechdel]);
+}
+
+
+/*
+ * displays each film and its attributes (stored in the $films array, taken from the database) in a human readable way
  *
  * @param array which is an films array containing arrays for each film
  *
@@ -30,6 +59,9 @@ function createYearDropdown() {
     }
     return $string;
 }
+
+
+
 
 
 
