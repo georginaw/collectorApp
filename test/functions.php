@@ -13,21 +13,17 @@ class FunctionsTest extends TestCase {
     }
 
     public function testCreateYearDropdownArray() {
-        $firstYear = 2010;
-        $expectedResult = [2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011];
-        $result = createYearDropdownArray($firstYear);
+        $firstYear = 2015;
+        $thisYear = 2019;
+        $expectedResult = [2019, 2018, 2017, 2016];
+        $result = createYearDropdownArray($thisYear, $firstYear);
         $this->assertEquals($expectedResult,$result);
     }
-}
 
-function createYearDropdown() : string {
-    $string = '';
-    $date = getdate();
-    $year = $date['year'];
-    while ($year > 1900) {
-        $string .= '<option value="' . $year . '">' . $year . '</option>';
-        $year--;
+    public function testPopulateDropdownArray() {
+        $yearArray = [2019, 2018, 2017, 2016];
+        $expectedResult = '<option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option>';
+        $result = populateYearDropdown($yearArray);
+        $this->assertEquals($expectedResult, $result);
     }
-    return $string;
 }
-
