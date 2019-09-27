@@ -1,6 +1,5 @@
 <?php
 require_once('functions.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +11,7 @@ require_once('functions.php');
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="container whole">
 <div class="container">
 <?php
 $filmDB = linkToFilmDB();
@@ -22,6 +22,7 @@ echo displayFilms($films);
 </div>
 <div class="button">
     <a href="form.php">Add Film to Collection</a>
+</div>
 </div>
 </body>
 </html>

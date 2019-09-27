@@ -8,11 +8,6 @@ $bechdel = $_POST['bechdel_status'];
 
 $filmDB = linkToFilmDB();
 
-echo $title;
-echo $year;
-echo $review;
-echo $bechdel;
-
 addToDB($filmDB, $title, $year, $review, $bechdel);
 
 header ('Location: index.php');
