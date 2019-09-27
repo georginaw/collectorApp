@@ -1,7 +1,5 @@
 <?php
 require_once('functions.php');
-$filmDB = linkToFilmDB();
-$films = fetchFromDB($filmDB);
 
 ?>
 
@@ -16,7 +14,8 @@ $films = fetchFromDB($filmDB);
 <body>
 <div class="container">
 <?php
-
+$filmDB = linkToFilmDB();
+$films = fetchFromDB($filmDB);
 echo displayFilms($films);
 
 ?>
