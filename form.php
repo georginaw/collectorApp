@@ -16,7 +16,7 @@ $yearArray = createYearDropdownArray($thisYear, $firstYear);
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form method="post" action="add-to-database.php">
+    <form method="post" action="add-to-database.php" class="add-film">
         <div class="form-input">
             <label>Film Title:</label>
             <input type="text" name="title" required>

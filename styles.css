@@ -7,7 +7,7 @@ html {
 }
 body {
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Courier, Helvetica, sans-serif;
     background-image: url('cinema.jpg');
     background-size: cover;
     height: 100%;
@@ -27,16 +27,15 @@ p {
 }
 
 label {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .button {
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     text-align: center;
     background-color: rgb(200, 200, 200);
     border-radius: 5px;
-    float: left;
     width: 20%;
 }
 
@@ -48,9 +47,11 @@ label {
 
 .form-input {
     margin: 10px;
+    font-size: 2rem;
 }
 
 .container {
+    padding: 5px 5px 5px 15px;
     overflow: auto;
     height: 100%;
     width: 90%;
@@ -62,7 +63,7 @@ label {
 
 .film-card {
     float: left;
-    width: 30%;
+    width: 33%;
     border-radius: 5px;
     position: relative;
 
@@ -86,6 +87,13 @@ label {
     position: absolute;
     left: 40%;
     bottom: 10px;
+}
 
+.add-film {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
 }
 

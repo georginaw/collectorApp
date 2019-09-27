@@ -20,9 +20,9 @@ $films = fetchFromDB($filmDB);
 echo displayFilms($films);
 
 ?>
-    <div class="button">
-        <a href="form.php">Add Film to Collection</a>
-    </div>
+</div>
+<div class="button">
+    <a href="form.php">Add Film to Collection</a>
 </div>
 </body>
 </html>
